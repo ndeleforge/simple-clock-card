@@ -32,7 +32,7 @@ type: custom:simple-clock
 
 ## Parameters
 
-| Parameters | Effect | Defautl value
+| Parameters | Effect | Default value
 | --------------- | -------- | -----------------
 | hour_font_size | Define hour font size | 5em
 | show_seconds | Show seconds | false
@@ -40,3 +40,13 @@ type: custom:simple-clock
 | date_capitalize | Capitalize date (day and month) | false
 | show_year | Show year | false
 | locale_date | Define locale for date | en-US
+
+### Example
+
+To get the card from the picture at the top, the configuration is the following one :
+
+```
+type: custom:simple-clock
+date_capitalize: true
+locale_date: fr-FR
+```
