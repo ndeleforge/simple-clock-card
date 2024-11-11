@@ -1,4 +1,7 @@
 class SimpleClock extends HTMLElement {
+    static NAME = "Simple Clock Card";
+    static VERSION = "0.2";
+
     set hass(hass) {
         if (!this.content) {
             // Create card
@@ -23,23 +26,22 @@ class SimpleClock extends HTMLElement {
 
             // Call clock
             this.getClock();
-            setInterval(() => this.getTime(), 1000);
-            setInterval(() => this.getDate(), 60000);
+            console.log(
+                `%c${SimpleClock.NAME} ${SimpleClock.VERSION}%c`,
+                'background-color: #4682B4; border-radius: 10px; padding: 2px 5px; font-weight: bold; color: white;'
+            );
         }
     }
 
     getClock() {
-        const now = new Date();
-        this.getTime(now);
-
-        // Only update date every hour or on the first call
-        if (now.getSeconds() === 0 && now.getMinutes() === 0 || !this.currentDate) {
-            this.getDate(now);
-            this.currentDate = now.toDateString();
-        }
+        this.getTime();
+        this.getDate();
+        setInterval(() => this.getTime(), 1000);
+        setInterval(() => this.getDate(), 60000);
     }
 
-    getTime(now) {
+    getTime() {
+        const now = new Date();
         let timeOptions = {
             hour: '2-digit',
             minute: '2-digit',
@@ -51,7 +53,8 @@ class SimpleClock extends HTMLElement {
         this.timeDiv.style.fontSize = this.hourFontSize;
     }
 
-    getDate(now) {
+    getDate() {
+        const now = new Date();
         let dateOptions = {
             weekday: 'long',
             month: 'long',
@@ -72,10 +75,8 @@ class SimpleClock extends HTMLElement {
 
     setConfig(config) {
         this.config = config;
-
         this.hourFontSize = config.hour_font_size || '5em';
         this.showSeconds = config.show_seconds || false;
-
         this.dateFontSize = config.date_font_size || '2em';
         this.dateCapitalize = config.date_capitalize || false;
         this.showYear = config.show_year || false;
