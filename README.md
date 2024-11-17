@@ -35,6 +35,7 @@ type: custom:simple-clock
 | Parameters | Effect | Default value
 | --------------- | -------- | -----------------
 | hour_font_size | Define hour font size | 5em
+| hour_bold_text | Put time in bold | false
 | show_seconds | Show seconds | false
 | date_font_size | Define date font size | 2em
 | date_capitalize | Capitalize date (day and month) | false
