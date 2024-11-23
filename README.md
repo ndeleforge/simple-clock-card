@@ -32,22 +32,15 @@ type: custom:simple-clock
 
 ## Parameters
 
-| Parameters | Effect | Default value
-| --------------- | -------- | -----------------
-| hour_font_size | Define hour font size | 5em
-| hour_bold_text | Put time in bold | false
-| show_seconds | Show seconds | false
-| date_font_size | Define date font size | 2em
-| date_capitalize | Capitalize date (day and month) | false
-| show_year | Show year | false
-| locale_date | Define locale for date | en-US
+| Parameter | Required | Description | Default value
+| -------------- | ------------ | --------------- | -----------------
+| type | Yes | Name of the card | none
+| no_background | No | Hide the background card | false
+| hour_font_size | No | Define hour font size | 5em
+| hour_bold_text | No | Put time in bold | false
+| show_seconds | No | Show seconds | false
+| date_font_size | No | Define date font size | 2em
+| date_capitalize | No | Capitalize date (day and month) | false
+| show_year | No | Show year | false
+| locale_date | No | Define locale for date | en-US
 
-### Example
-
-To get the card from the picture at the top, the configuration is the following one :
-
-```
-type: custom:simple-clock
-date_capitalize: true
-locale_date: fr-FR
-```

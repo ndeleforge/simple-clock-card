@@ -4,8 +4,8 @@ class SimpleClock extends HTMLElement {
 
     set hass(hass) {
         if (!this.content) {
-            this.createCard()
-            this.displayClock();
+            this.setCard()
+            this.getClock();
 
             console.info(
                 `%c${SimpleClock.NAME} ${SimpleClock.VERSION}%c`,
@@ -14,7 +14,7 @@ class SimpleClock extends HTMLElement {
         }
     }
 
-    displayClock() {
+    getClock() {
         this.getTime();
         this.getDate();
         setInterval(() => this.getTime(), 1000);
@@ -25,7 +25,7 @@ class SimpleClock extends HTMLElement {
         const now = new Date();
         let timeOptions = { hour: '2-digit', minute: '2-digit' };
 
-        if (this.showSeconds) {
+        if (this.getTrue(this.showSeconds)) {
             timeOptions.second = '2-digit';
         }
 
@@ -34,7 +34,7 @@ class SimpleClock extends HTMLElement {
         this.timeDiv.innerHTML = time;
         this.timeDiv.style.fontSize = this.hourFontSize;
 
-        if (this.hourBoldText === true) {
+        if (this.getTrue(this.hourBoldText)) {
             this.timeDiv.style.fontWeight = "bold";
         }
     }
@@ -43,13 +43,13 @@ class SimpleClock extends HTMLElement {
         const now = new Date();
         let dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
         
-        if (this.showYear === true) {
+        if (this.getTrue(this.showYear)) {
             dateOptions.year = 'numeric';
         }
 
         let date = now.toLocaleDateString(this.localeDate, dateOptions).replace(',', '');
 
-        if (this.dateCapitalize === true) {
+        if (this.getTrue(this.dateCapitalize)) {
             date = date.replace(/\b\w/g, char => char.toUpperCase());
         }
 
@@ -57,8 +57,14 @@ class SimpleClock extends HTMLElement {
         this.dateDiv.style.fontSize = this.dateFontSize;
     }
 
-    createCard() {
+    setCard() {
         const card = document.createElement('ha-card');
+
+        if (this.getTrue(this.noBackground)) {
+            card.style.background = 'none'; 
+            card.style.boxShadow = 'none'; 
+        }
+
         this.content = document.createElement('div');
         this.content.style.padding = '15px';
         this.content.style.textAlign = 'center';
@@ -77,14 +83,20 @@ class SimpleClock extends HTMLElement {
 
     setConfig(config) {
         this.config = config;
+        this.noBackground = config.no_background || false;
         this.hourFontSize = config.hour_font_size || '5em';
-        this.hourBoldText = Boolean(config.hour_bold_text);
-        this.showSeconds = Boolean(config.show_seconds);
+        this.hourBoldText = config.hour_bold_text || false;
+        this.showSeconds = config.show_seconds || false;
         this.dateFontSize = config.date_font_size || '2em';
-        this.dateCapitalize = Boolean(config.date_capitalize);
-        this.showYear = Boolean(config.show_year);
+        this.dateCapitalize = config.date_capitalize || false;
+        this.showYear = config.show_year || false;
         this.localeDate = config.locale_date || 'en-US';
     }
+
+    getTrue(setting) {
+        if (setting === true || setting === "true") return true
+        return false
+    } 
 
     getCardSize() {
         return 1;
