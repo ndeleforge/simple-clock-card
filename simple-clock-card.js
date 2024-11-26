@@ -25,7 +25,7 @@ class SimpleClock extends HTMLElement {
         const now = new Date();
         let timeOptions = { hour: '2-digit', minute: '2-digit' };
 
-        if (this.getTrue(this.showSeconds)) {
+        if (this.isTrue(this.showSeconds)) {
             timeOptions.second = '2-digit';
         }
 
@@ -34,7 +34,7 @@ class SimpleClock extends HTMLElement {
         this.timeDiv.innerHTML = time;
         this.timeDiv.style.fontSize = this.hourFontSize;
 
-        if (this.getTrue(this.hourBoldText)) {
+        if (this.isTrue(this.hourBoldText)) {
             this.timeDiv.style.fontWeight = "bold";
         }
     }
@@ -43,13 +43,13 @@ class SimpleClock extends HTMLElement {
         const now = new Date();
         let dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
         
-        if (this.getTrue(this.showYear)) {
+        if (this.isTrue(this.showYear)) {
             dateOptions.year = 'numeric';
         }
 
         let date = now.toLocaleDateString(this.localeDate, dateOptions).replace(',', '');
 
-        if (this.getTrue(this.dateCapitalize)) {
+        if (this.isTrue(this.dateCapitalize)) {
             date = date.replace(/\b\w/g, char => char.toUpperCase());
         }
 
@@ -60,7 +60,7 @@ class SimpleClock extends HTMLElement {
     setCard() {
         const card = document.createElement('ha-card');
 
-        if (this.getTrue(this.noBackground)) {
+        if (this.isTrue(this.noBackground)) {
             card.style.background = 'none'; 
             card.style.boxShadow = 'none'; 
         }
@@ -93,9 +93,8 @@ class SimpleClock extends HTMLElement {
         this.localeDate = config.locale_date || 'en-US';
     }
 
-    getTrue(setting) {
-        if (setting === true || setting === "true") return true
-        return false
+    isTrue(setting) {
+        return (setting === true || setting === "true") ? true : false;
     } 
 
     getCardSize() {

@@ -32,15 +32,14 @@ type: custom:simple-clock
 
 ## Parameters
 
-| Parameter | Required | Description | Default value
-| -------------- | ------------ | --------------- | -----------------
-| type | Yes | Name of the card | none
-| no_background | No | Hide the background card | false
-| hour_font_size | No | Define hour font size | 5em
-| hour_bold_text | No | Put time in bold | false
-| show_seconds | No | Show seconds | false
-| date_font_size | No | Define date font size | 2em
-| date_capitalize | No | Capitalize date (day and month) | false
-| show_year | No | Show year | false
-| locale_date | No | Define locale for date | en-US
-
+| Parameter | Required | Description | Type | Default value
+| -------------- | ------------ | --------------- | ------- | -----------------
+| type | Yes | Name of the card | string | none
+| no_background | No | Hide the background card | boolean | false
+| hour_font_size | No | Define hour font size | string | 5em
+| hour_bold_text | No | Put time in bold | boolean | false
+| show_seconds | No | Show seconds | boolean | false
+| date_font_size | No | Define date font size | string | 2em
+| date_capitalize | No | Capitalize date (day and month) | boolean | false
+| show_year | No | Show year | boolean | false
+| locale_date | No | Define locale for date | string | en-US
