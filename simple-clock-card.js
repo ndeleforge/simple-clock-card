@@ -1,6 +1,6 @@
 class SimpleClock extends HTMLElement {
     static NAME = "Simple Clock Card";
-    static VERSION = "0.2.2";
+    static VERSION = "0.2.3";
 
     set hass(hass) {
         if (!this.content) {
@@ -49,8 +49,8 @@ class SimpleClock extends HTMLElement {
 
         let date = now.toLocaleDateString(this.localeDate, dateOptions).replace(',', '');
 
-        if (this.isTrue(this.dateCapitalize)) {
-            date = date.replace(/\b\w/g, char => char.toUpperCase());
+        if (this.getTrue(this.dateCapitalize)) {
+            date = date.split(' ').map( word => word.charAt(0).toUpperCase() + word.slice(1) ).join(' ');
         }
 
         this.dateDiv.innerHTML = date;
