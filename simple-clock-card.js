@@ -49,8 +49,14 @@ class SimpleClock extends HTMLElement {
 
         let date = now.toLocaleDateString(this.localeDate, dateOptions).replace(',', '');
 
-        if (this.getTrue(this.dateCapitalize)) {
-            date = date.split(' ').map( word => word.charAt(0).toUpperCase() + word.slice(1) ).join(' ');
+        if (this.isTrue(this.dateCapitalize)) {
+            date = date.split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+        }
+
+        if (this.localeDate.startsWith('fr')) {
+            date = date.replace(/\b1\b/, '1er');
         }
 
         this.dateDiv.innerHTML = date;
@@ -95,8 +101,8 @@ class SimpleClock extends HTMLElement {
 
     isTrue(setting) {
         return (setting === true || setting === "true") ? true : false;
-    } 
-
+    }
+    
     getCardSize() {
         return 1;
     }
