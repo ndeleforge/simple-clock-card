@@ -42,9 +42,11 @@ type: custom:simple-clock
 | show_seconds | No | Show seconds | boolean | false
 | date_font_size | No | Define date font size | string | 2em
 | date_capitalize | No | Capitalize date (day and month) | boolean | false
+| weekday_format | No | Put the weekday in *short* or *long* format | string | long
+| month_format | No | Put the month in *short* or *long* format | string | long
 | show_year | No | Show year | boolean | false
 | locale_date | No | Define locale for date | string | en-US
 
-## Exemple
+## Example
 
-![Configuration example](/docs/images/exemple.png)
+![Configuration example](/docs/images/example.png)

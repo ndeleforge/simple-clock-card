@@ -1,6 +1,6 @@
 class SimpleClock extends HTMLElement {
     static NAME = "Simple Clock Card";
-    static VERSION = "0.2.3";
+    static VERSION = "0.2.4";
 
     set hass(hass) {
         if (!this.content) {
@@ -25,27 +25,24 @@ class SimpleClock extends HTMLElement {
         const now = new Date();
         let timeOptions = { hour: '2-digit', minute: '2-digit' };
 
-        if (this.isTrue(this.showSeconds)) {
-            timeOptions.second = '2-digit';
-        }
+        if (this.isTrue(this.showSeconds)) timeOptions.second = '2-digit';
 
         let time = now.toLocaleTimeString([], timeOptions);
 
         this.timeDiv.innerHTML = time;
         this.timeDiv.style.fontSize = this.hourFontSize;
 
-        if (this.isTrue(this.hourBoldText)) {
-            this.timeDiv.style.fontWeight = "bold";
-        }
+        if (this.isTrue(this.hourBoldText)) this.timeDiv.style.fontWeight = "bold";
     }
 
     getDate() {
         const now = new Date();
-        let dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
+        let dateOptions = { day: 'numeric' };
         
-        if (this.isTrue(this.showYear)) {
-            dateOptions.year = 'numeric';
-        }
+        dateOptions.weekday = (this.weekdayFormat === 'short') ? 'short' : 'long';
+        dateOptions.month = (this.monthFormat === 'short') ? 'short' : 'long';
+
+        if (this.isTrue(this.showYear)) dateOptions.year = 'numeric';
 
         let date = now.toLocaleDateString(this.localeDate, dateOptions).replace(',', '');
 
@@ -55,9 +52,7 @@ class SimpleClock extends HTMLElement {
                 .join(' ');
         }
 
-        if (this.localeDate.startsWith('fr')) {
-            date = date.replace(/\b1\b/, '1er');
-        }
+        if (this.localeDate.startsWith('fr')) date = date.replace(/\b1\b/, '1er');
 
         this.dateDiv.innerHTML = date;
         this.dateDiv.style.fontSize = this.dateFontSize;
@@ -95,6 +90,8 @@ class SimpleClock extends HTMLElement {
         this.showSeconds = config.show_seconds || false;
         this.dateFontSize = config.date_font_size || '2em';
         this.dateCapitalize = config.date_capitalize || false;
+        this.weekdayFormat = config.weekday_format || 'long'; 
+        this.monthFormat = config.month_format || 'long';
         this.showYear = config.show_year || false;
         this.localeDate = config.locale_date || 'en-US';
     }
