@@ -18,9 +18,10 @@ This clock card is made for anybody which is looking for a simple, no fancy cloc
 This card is not available on HACS. It means it must be installed manually.   
 
 ## Installation 
-- Download the `SimpleClockCard.js` file.
+- Download the `simple-clock-card.js` file.
 - Add it to your `www` Home-Assistant folder.  
 - Add the ressource to your Home-Assistant.
+- Do not hesitate to clear your cache.
 
 ## Configuration
 
@@ -43,3 +44,7 @@ type: custom:simple-clock
 | date_capitalize | No | Capitalize date (day and month) | boolean | false
 | show_year | No | Show year | boolean | false
 | locale_date | No | Define locale for date | string | en-US
+
+## Exemple
+
+![Configuration example](/docs/images/exemple.png)
