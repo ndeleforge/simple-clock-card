@@ -2,10 +2,10 @@
 
 <div align="center">
 
-[![GitHub license](https://img.shields.io/github/license/ndeleforge/binocle?style=for-the-badge)](https://github.com/ndeleforge/binocle/blob/main/LICENCE)
-![GitHub last commit](https://img.shields.io/github/last-commit/ndeleforge/binocle?style=for-the-badge)
-[![GitHub forks](https://img.shields.io/github/forks/ndeleforge/binocle?style=for-the-badge)](https://github.com/ndeleforge/binocle/network)
-[![GitHub stars](https://img.shields.io/github/stars/ndeleforge/binocle?style=for-the-badge)](https://github.com/ndeleforge/binocle/stargazers)
+[![GitHub license](https://img.shields.io/github/license/ndeleforge/simpleClockCard?style=for-the-badge)](https://github.com/ndeleforge/binocle/blob/main/LICENCE)
+![GitHub last commit](https://img.shields.io/github/last-commit/ndeleforge/simpleClockCard?style=for-the-badge)
+[![GitHub forks](https://img.shields.io/github/forks/ndeleforge/simpleClockCard?style=for-the-badge)](https://github.com/ndeleforge/binocle/network)
+[![GitHub stars](https://img.shields.io/github/stars/ndeleforge/simpleClockCard?style=for-the-badge)](https://github.com/ndeleforge/binocle/stargazers)
 
 This clock card is made for anybody which is looking for a simple, no fancy clock card.
 
