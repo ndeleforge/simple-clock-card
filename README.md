@@ -15,15 +15,28 @@ This clock card is made for anybody which is looking for a simple, no fancy cloc
 
 # Usage
 
-This card is not available on HACS. It means it must be installed manually.   
+This card is not available on HACS.
 
-## Installation 
+## Manual Installation
+
 - Download the `simple-clock-card.js` file.
 - Add it to your `www` Home-Assistant folder.  
-- Add the ressource to your Home-Assistant.
+- Add the ressource to your Home-Assistant via the [GUI](https://my.home-assistant.io/redirect/lovelace_resources/).
+```
+/local/simple-clock-card.js
+```
 - Do not hesitate to clear your cache.
 
-## Configuration
+## Manual update
+
+- Download the new `simple-clock-card.js` file.
+- Replace the old one in your `www` Home-Assistant folder.
+```
+/local/simple-clock-card.js?v=x
+```
+- Change the x value by anything to force your browser to reload it.
+
+# Configuration
 
 In order to add the clock in your dashboard, create a manual card and add this :
 
@@ -46,7 +59,3 @@ type: custom:simple-clock
 | month_format | No | Put the month in *short* or *long* format | string | long
 | show_year | No | Show year | boolean | false
 | locale_date | No | Define locale for date | string | en-US
-
-## Example
-
-![Configuration example](/docs/images/example.png)
