@@ -50,9 +50,11 @@ type: custom:simple-clock
 | -------------- | ------------ | --------------- | ------- | -----------------
 | type | Yes | Name of the card | string | none
 | no_background | No | Hide the background card | boolean | false
+| **Hour settings**
 | hour_font_size | No | Define hour font size | string | 5em
 | hour_bold_text | No | Put time in bold | boolean | false
 | show_seconds | No | Show seconds | boolean | false
+| **Date settings**
 | date_font_size | No | Define date font size | string | 2em
 | date_capitalize | No | Capitalize date (day and month) | boolean | false
 | weekday_format | No | Put the weekday in *short* or *long* format | string | long
