@@ -1,6 +1,6 @@
 class SimpleClock extends HTMLElement {
     static NAME = "Simple Clock Card";
-    static VERSION = "0.2.5";
+    static VERSION = "0.2.6";
 
     set hass(hass) {
         if (!this.content) {
@@ -110,8 +110,8 @@ class SimpleClock extends HTMLElement {
         this.content.style.textAlign = 'center';
         
         // Switch the container to flex style if option is set
-        this.content.style.display = (this.layout === 'row') ? 'flex' : 'block';
-        if (this.layout === "row") {
+        this.content.style.display = (this.isTrue(this.oneRow)) ? 'flex' : 'block';
+        if (this.isTrue(this.oneRow)) {
             this.content.style.flexDirection = 'row';
             this.content.style.justifyContent = 'space-evenly';
             this.content.style.alignItems = 'center';
@@ -128,7 +128,7 @@ class SimpleClock extends HTMLElement {
         this.dateDiv.style.lineHeight = '1em';
         
         // Force the date aligned at left if some options are set together
-        if (this.layout === "row" && this.isTrue(this.dateBreak)) {
+        if (this.isTrue(this.oneRow) && this.isTrue(this.dateBreak)) {
             this.dateDiv.style.textAlign = 'left';
             this.dateDiv.style.whiteSpace = 'pre-line';
         }
@@ -143,7 +143,7 @@ class SimpleClock extends HTMLElement {
     setConfig(config) {
         this.config = config;
         this.noBackground = config.no_background || false;
-        this.layout = config.layout || 'rows';
+        this.oneRow = config.one_row || false ;
         this.hourFontSize = config.hour_font_size || '5em';
         this.hourBoldText = config.hour_bold_text || false;
         this.showSeconds = config.show_seconds || false;
