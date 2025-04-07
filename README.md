@@ -50,6 +50,7 @@ type: custom:simple-clock
 | -------------- | ------------ | --------------- | ------- | -----------------
 | type | Yes | Name of the card | string | none
 | no_background | No | Hide the background card | boolean | false
+| layout | No | If set to "row", hour and date will be displayed in one row | string | twoRows
 | **Hour settings**
 | hour_font_size | No | Define hour font size | string | 5em
 | hour_bold_text | No | Put time in bold | boolean | false
@@ -61,3 +62,4 @@ type: custom:simple-clock
 | month_format | No | Put the month in *short* or *long* format | string | long
 | show_year | No | Show year | boolean | false
 | locale_date | No | Define locale for date | string | en-US
+| break_date | No | Break the date into two parts | boolean | false
