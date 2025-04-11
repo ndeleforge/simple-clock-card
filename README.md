@@ -74,6 +74,17 @@ type: custom:simple-clock
 type: custom:simple-clock
 ```
 
+### All in one, no background
+
+![All in one] example](/docs/images/all_in_one.png)
+
+```YAML
+type: custom:simple-clock
+show_year: true
+show_seconds: true
+no_background: true
+```
+
 ### One row, short size
 
 ![One row example](/docs/images/one_row.png)
