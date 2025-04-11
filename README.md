@@ -76,7 +76,7 @@ type: custom:simple-clock
 
 ### All in one, no background
 
-![All in one] example](/docs/images/all_in_one.png)
+![All in one example](/docs/images/all_in_one.png)
 
 ```YAML
 type: custom:simple-clock
