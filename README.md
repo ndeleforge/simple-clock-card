@@ -71,7 +71,7 @@ type: custom:simple-clock
 ![No option example](/docs/images/no_options.png)
 
 ```YAML
-    type: custom:simple-clock
+type: custom:simple-clock
 ```
 
 ### One row, short size
@@ -79,11 +79,11 @@ type: custom:simple-clock
 ![One row example](/docs/images/one_row.png)
 
 ```YAML
-    type: custom:simple-clock
-    hour_bold_text: true
-    one_row: true
-    weekday_format: short
-    month_format: short
+type: custom:simple-clock
+hour_bold_text: true
+one_row: true
+weekday_format: short
+month_format: short
 ```
 
 ### One row, full size
@@ -91,10 +91,10 @@ type: custom:simple-clock
 ![One row full example](/docs/images/one_row_full.png)
 
 ```YAML
-    type: custom:simple-clock
-    hour_bold_text: true
-    hour_font_size: 6.5em
-    layout: row
-    break_date: true
-    show_year: true
+type: custom:simple-clock
+hour_bold_text: true
+hour_font_size: 6.5em
+one_row: true
+break_date: true
+show_year: true
 ```
