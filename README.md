@@ -63,3 +63,38 @@ type: custom:simple-clock
 | show_year | No | Show year | boolean | false
 | locale_date | No | Define locale for date | string | en-US
 | break_date | No | Break the date into two parts | boolean | false
+
+## Examples
+
+### No options
+
+![No option example](/docs/images/no_options.png)
+
+```YAML
+    type: custom:simple-clock
+```
+
+### One row, short size
+
+![One row example](/docs/images/one_row.png)
+
+```YAML
+    type: custom:simple-clock
+    hour_bold_text: true
+    one_row: true
+    weekday_format: short
+    month_format: short
+```
+
+### One row, full size
+
+![One row full example](/docs/images/one_row_full.png)
+
+```YAML
+    type: custom:simple-clock
+    hour_bold_text: true
+    hour_font_size: 6.5em
+    layout: row
+    break_date: true
+    show_year: true
+```
