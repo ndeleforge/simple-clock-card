@@ -46,11 +46,11 @@ type: custom:simple-clock
 
 ## Parameters
 
-| Parameter | Required | Description | Type | Default value | Possible values
-| -------------- | ------------ | --------------- | ------- | ----------------- | --------------------
-| type | Yes | Name of the card | string | none 
+| Parameter | Required | Description | Type | Default value
+| -------------- | ------------ | --------------- | ------- | -----------------
+| type | Yes | Name of the card | string | none
 | no_background | No | Hide the background card | boolean | false
-| layout | No | Modify layout of the widget (see examples below) | string | null | row, null
+| one_row | No | Hour and date will be displayed in one row | boolean | false
 | **Hour settings**
 | hour_font_size | No | Define hour font size | string | 5em
 | hour_bold_text | No | Put time in bold | boolean | false
@@ -95,17 +95,4 @@ hour_bold_text: true
 one_row: true
 weekday_format: short
 month_format: short
-```
-
-### One row, full size
-
-![One row full example](/docs/images/one_row_full.png)
-
-```YAML
-type: custom:simple-clock
-hour_bold_text: true
-hour_font_size: 6.5em
-one_row: true
-break_date: true
-show_year: true
 ```

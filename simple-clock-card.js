@@ -73,22 +73,6 @@ class SimpleClock extends HTMLElement {
         // Add "er" for french date only 
         if (this.localeDate.startsWith('fr')) date = date.replace(/\b1\b/, '1er');
         
-        // Cut the date in two parts if the option is set
-        if (this.isTrue(this.dateBreak)) {
-            const parts = date.split(' ');
-            
-            // Depends on if the year is displayed or not
-            if (parts.length === 3) {
-                const firstLine = parts[0];
-                const secondLine = parts.slice(1).join(' ');
-                date = `${firstLine}<br>${secondLine}`;
-            } else if (parts.length === 4) {
-                const firstLine = parts.slice(0, 2).join(' ');
-                const secondLine = parts.slice(2).join(' ');
-                date = `${firstLine}<br>${secondLine}`;
-            }
-        }
-        
         // Add it to the date container
         this.dateDiv.innerHTML = date;
         this.dateDiv.style.fontSize = this.dateFontSize;
@@ -126,13 +110,7 @@ class SimpleClock extends HTMLElement {
         // Create the date container
         this.dateDiv = document.createElement('div');
         this.dateDiv.style.lineHeight = '1em';
-        
-        // Force the date aligned at left if some options are set together
-        if (this.isTrue(this.oneRow) && this.isTrue(this.dateBreak)) {
-            this.dateDiv.style.textAlign = 'left';
-            this.dateDiv.style.whiteSpace = 'pre-line';
-        }
-        
+
         this.content.appendChild(this.dateDiv);
         
         // Add all elements to the card
@@ -153,7 +131,6 @@ class SimpleClock extends HTMLElement {
         this.monthFormat = config.month_format || 'long';
         this.showYear = config.show_year || false;
         this.localeDate = config.locale_date || 'en-US';
-        this.dateBreak = config.date_break || false;
     }
 
     isTrue(setting) {
