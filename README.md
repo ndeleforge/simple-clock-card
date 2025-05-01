@@ -46,11 +46,11 @@ type: custom:simple-clock
 
 ## Parameters
 
-| Parameter | Required | Description | Type | Default value
-| -------------- | ------------ | --------------- | ------- | -----------------
-| type | Yes | Name of the card | string | none
+| Parameter | Required | Description | Type | Default value | Possible values
+| -------------- | ------------ | --------------- | ------- | ----------------- | --------------------
+| type | Yes | Name of the card | string | none 
 | no_background | No | Hide the background card | boolean | false
-| one_row | No | Hour and date will be displayed in one row | boolean | false
+| layout | No | Modify layout of the widget (see examples below) | string | null | row, null
 | **Hour settings**
 | hour_font_size | No | Define hour font size | string | 5em
 | hour_bold_text | No | Put time in bold | boolean | false
