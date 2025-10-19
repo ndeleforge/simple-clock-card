@@ -1,11 +1,6 @@
 # Simple Clock Card
 
-[![GitHub license](https://img.shields.io/github/license/ndeleforge/simpleClockCard?style=for-the-badge)](https://github.com/ndeleforge/binocle/blob/main/LICENCE)
-![GitHub last commit](https://img.shields.io/github/last-commit/ndeleforge/simpleClockCard?style=for-the-badge)
-[![GitHub forks](https://img.shields.io/github/forks/ndeleforge/simpleClockCard?style=for-the-badge)](https://github.com/ndeleforge/binocle/network)
-[![GitHub stars](https://img.shields.io/github/stars/ndeleforge/simpleClockCard?style=for-the-badge)](https://github.com/ndeleforge/binocle/stargazers)
-
-A clock card for anyone who wants something simple, without the fluff.
+A minimal clock card for Home Assistant, without the fluff.
 
 <div align="center">
 
